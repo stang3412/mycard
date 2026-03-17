@@ -39,6 +39,19 @@ function rmImg(e, btn) {
 function clearAll() {
   document.querySelectorAll('input[type="text"], input[type="number"]').forEach(el => el.value = '');
   document.querySelectorAll('select').forEach(el => el.value = '');
+  
+  // Custom dropdown clear logic
+  document.querySelectorAll('.custom-select').forEach(custom => {
+    const select = custom.parentNode.querySelector('select');
+    if (select) {
+      custom.querySelector('.custom-select-trigger span').textContent = select.options[0].text;
+      custom.querySelectorAll('.custom-option').forEach((opt, i) => {
+        if (i===0) opt.classList.add('selected');
+        else opt.classList.remove('selected');
+      });
+    }
+  });
+
   document.querySelectorAll('.cell.has-image').forEach(cell => {
     cell.querySelector('.cell-img').src = '';
     cell.classList.remove('has-image');
@@ -49,7 +62,7 @@ function clearAll() {
 // ── Save Image ────────────────────────────────────────────
 function saveImage() {
   const card = document.querySelector('.card');
-  const overlayElements = document.querySelectorAll('.cell-rm, .cell-file, .theme-toggle');
+  const overlayElements = document.querySelectorAll('.cell-rm, .cell-file, .theme-toggle, .watermark-close');
   const actions = document.querySelector('.actions');
   const nameInput = document.getElementById('nameInput');
 
@@ -107,4 +120,84 @@ function saveImage() {
       link.click();
     });
   }, 100);
+}
+
+// ── Custom Dropdown Initialization ───────────────────────────
+(function initCustomSelects() {
+  document.querySelectorAll('.select-wrap').forEach(wrap => {
+    const select = wrap.querySelector('select');
+    if (!select) return;
+    
+    // Hide original select
+    select.style.display = 'none';
+    wrap.classList.add('customized');
+    
+    const customSelect = document.createElement('div');
+    customSelect.className = 'custom-select';
+    
+    const trigger = document.createElement('div');
+    trigger.className = 'custom-select-trigger';
+    trigger.innerHTML = `<span>${select.options[select.selectedIndex].text}</span><div class="arrow"></div>`;
+    
+    const optionsPanel = document.createElement('div');
+    optionsPanel.className = 'custom-options';
+    
+    Array.from(select.options).forEach((opt, idx) => {
+      const optDiv = document.createElement('div');
+      optDiv.className = 'custom-option' + (opt.selected ? ' selected' : '');
+      optDiv.dataset.value = opt.value;
+      optDiv.textContent = opt.text;
+      
+      optDiv.addEventListener('click', (e) => {
+        e.stopPropagation();
+        select.selectedIndex = idx;
+        trigger.querySelector('span').textContent = opt.text;
+        
+        optionsPanel.querySelectorAll('.custom-option').forEach(el => el.classList.remove('selected'));
+        optDiv.classList.add('selected');
+        
+        customSelect.classList.remove('open');
+        const parentMeta = customSelect.closest('.meta-item');
+        if (parentMeta) parentMeta.classList.remove('active-dropdown');
+        
+        select.dispatchEvent(new Event('change'));
+      });
+      optionsPanel.appendChild(optDiv);
+    });
+    
+    customSelect.appendChild(trigger);
+    customSelect.appendChild(optionsPanel);
+    wrap.appendChild(customSelect);
+    
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.querySelectorAll('.custom-select.open').forEach(el => {
+        if (el !== customSelect) {
+          el.classList.remove('open');
+          const parent = el.closest('.meta-item');
+          if (parent) parent.classList.remove('active-dropdown');
+        }
+      });
+      const isOpen = customSelect.classList.toggle('open');
+      const parentMeta = customSelect.closest('.meta-item');
+      if (parentMeta) {
+        if(isOpen) parentMeta.classList.add('active-dropdown');
+        else parentMeta.classList.remove('active-dropdown');
+      }
+    });
+  });
+  
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.custom-select.open').forEach(el => {
+      el.classList.remove('open');
+      const parent = el.closest('.meta-item');
+      if (parent) parent.classList.remove('active-dropdown');
+    });
+  });
+})();
+
+// ── Watermark ────────────────────────────────────────────────
+function closeWatermark() {
+  const wm = document.getElementById('watermark');
+  if (wm) wm.style.display = 'none';
 }

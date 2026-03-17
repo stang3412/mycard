@@ -24,7 +24,7 @@
       <input type="checkbox" id="themeToggle" style="display:none" onchange="toggleTheme(this)" />
     </label>
 
-    <div class="tagline">My Cards &lt;3</div>
+    <div class="tagline">My Cards ♡</div>
 
     <!-- Name -->
     <div class="name-field">
@@ -44,7 +44,7 @@
             <option value="">—</option>
             <option>Male</option>
             <option>Female</option>
-            <option>LGBTQ+</option>
+            <option>LGBTQIA+</option>
           </select>
         </div>
       </div>
@@ -222,7 +222,7 @@
       </div>
 
       <div class="cell c-fav c-col4 c-row4">
-        <span class="cell-label">Fav App / Game</span>
+        <span class="cell-label">App / Game</span>
         <img class="cell-img" />
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -241,6 +241,12 @@
       <button class="action-btn btn-clear" onclick="clearAll()">Clear</button>
     </div>
 
+    <!-- Watermark -->
+    <div class="watermark" id="watermark">
+      <span>Created by <a href="https://www.instagram.com/_st.moneyy?igsh=cDR0cGpmaXd4d24z&utm_source=qr"
+          target="_blank" class="watermark-link">_st.moneyy</a></span>
+      <button class="watermark-close" onclick="closeWatermark()" title="Hide watermark">✕</button>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
