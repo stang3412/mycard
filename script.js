@@ -21,7 +21,7 @@ function loadImg(e, input) {
   const cell = input.closest('.cell');
   const reader = new FileReader();
   reader.onload = ev => {
-    cell.querySelector('.cell-img').src = ev.target.result;
+    cell.querySelector('.cell-img').style.backgroundImage = `url(${ev.target.result})`;
     cell.classList.add('has-image');
   };
   reader.readAsDataURL(file);
@@ -30,7 +30,7 @@ function loadImg(e, input) {
 function rmImg(e, btn) {
   e.stopPropagation();
   const cell = btn.closest('.cell');
-  cell.querySelector('.cell-img').src = '';
+  cell.querySelector('.cell-img').style.backgroundImage = '';
   cell.classList.remove('has-image');
   cell.querySelector('.cell-file').value = '';
 }
@@ -53,7 +53,7 @@ function clearAll() {
   });
 
   document.querySelectorAll('.cell.has-image').forEach(cell => {
-    cell.querySelector('.cell-img').src = '';
+    cell.querySelector('.cell-img').style.backgroundImage = '';
     cell.classList.remove('has-image');
     cell.querySelector('.cell-file').value = '';
   });

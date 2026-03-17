@@ -76,7 +76,7 @@
       <!-- Row 1 -->
       <div class="cell c-mbti">
         <span class="cell-label">MBTI</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -88,7 +88,7 @@
 
       <div class="cell c-food">
         <span class="cell-label">Food</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -100,7 +100,7 @@
 
       <div class="cell c-char">
         <span class="cell-label">Character</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -112,7 +112,7 @@
 
       <div class="cell c-color c-col4">
         <span class="cell-label">Color</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -125,7 +125,7 @@
       <!-- Row 2 -->
       <div class="cell c-place">
         <span class="cell-label">Place</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -136,8 +136,8 @@
       </div>
 
       <div class="cell c-free">
-        <span class="cell-label">Me ✦</span>
-        <img class="cell-img" />
+        <span class="cell-label">Free Space ✦</span>
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -149,7 +149,7 @@
 
       <div class="cell c-season c-col4">
         <span class="cell-label">Season</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -162,7 +162,7 @@
       <!-- Row 3 -->
       <div class="cell c-hobby">
         <span class="cell-label">Hobby</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -174,7 +174,7 @@
 
       <div class="cell c-music c-col4">
         <span class="cell-label">Music</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -187,7 +187,7 @@
       <!-- Row 4 -->
       <div class="cell c-career c-row4">
         <span class="cell-label">Career Path</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -199,7 +199,7 @@
 
       <div class="cell c-flower c-row4">
         <span class="cell-label">Flower</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -211,7 +211,7 @@
 
       <div class="cell c-animal c-row4">
         <span class="cell-label">Animal</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -223,7 +223,7 @@
 
       <div class="cell c-fav c-col4 c-row4">
         <span class="cell-label">App / Game</span>
-        <img class="cell-img" />
+        <div class="cell-img"></div>
         <div class="cell-add"><svg viewBox="0 0 24 24">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -240,6 +240,14 @@
       <button class="action-btn btn-save" onclick="saveImage()">Save</button>
       <button class="action-btn btn-clear" onclick="clearAll()">Clear</button>
     </div>
+
+    <!-- Watermark -->
+    <div class="watermark" id="watermark">
+      <span>Created by <a href="https://www.instagram.com/_st.moneyy?igsh=cDR0cGpmaXd4d24z&utm_source=qr"
+          target="_blank" class="watermark-link">_st.moneyy</a></span>
+      <button class="watermark-close" onclick="closeWatermark()" title="Hide watermark">✕</button>
+    </div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="script.js"></script>
